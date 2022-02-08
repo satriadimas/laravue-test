@@ -5742,40 +5742,28 @@ var subject = {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              if (!(context.state.input.email != "" && context.state.input.password != "")) {
-                _context2.next = 14;
-                break;
-              }
-
-              _context2.prev = 1;
-              _context2.next = 4;
+              _context2.prev = 0;
+              _context2.next = 3;
               return axios.post("/api/login", context.state.input);
 
-            case 4:
+            case 3:
               response = _context2.sent;
               localStorage.setItem("user-token", response.data.access_token);
               context.commit("setUsername", response.data.name);
-              _context2.next = 12;
+              _context2.next = 11;
               break;
 
-            case 9:
-              _context2.prev = 9;
-              _context2.t0 = _context2["catch"](1);
+            case 8:
+              _context2.prev = 8;
+              _context2.t0 = _context2["catch"](0);
               throw _context2.t0;
 
-            case 12:
-              _context2.next = 15;
-              break;
-
-            case 14:
-              console.log("A email and password must be present");
-
-            case 15:
+            case 11:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[1, 9]]);
+      }, _callee2, null, [[0, 8]]);
     }))();
   },
   logout: function logout(context) {

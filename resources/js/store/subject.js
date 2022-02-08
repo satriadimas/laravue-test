@@ -11,22 +11,12 @@ export const subject = {
         }
     },
     async login(context) {
-        if (
-            context.state.input.email != "" &&
-            context.state.input.password != ""
-        ) {
-            try {
-                let response = await axios.post(
-                    "/api/login",
-                    context.state.input
-                );
-                localStorage.setItem("user-token", response.data.access_token);
-                context.commit("setUsername", response.data.name);
-            } catch (error) {
-                throw error;
-            }
-        } else {
-            console.log("A email and password must be present");
+        try {
+            let response = await axios.post("/api/login", context.state.input);
+            localStorage.setItem("user-token", response.data.access_token);
+            context.commit("setUsername", response.data.name);
+        } catch (error) {
+            throw error;
         }
     },
     async logout(context) {
